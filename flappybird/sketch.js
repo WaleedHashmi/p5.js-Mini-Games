@@ -61,37 +61,74 @@ function Pipe(){
     }
 
 }
+
+function Game(){
+    this.state = 'new';
+    
+    this.newGame = function(){
+        textFont(font);
+        textSize(40);
+        textAlign(CENTER);
+        fill(100);
+        rect(width/2 - 60,580,120,30); 
+        fill(255); 
+        text("Not Flappy Bird", width/2, 280);
+        textSize(20);
+        text("A flappy bird inspired game", width/2, 310);  
+        
+        text("Start Game", width/2, 600);      
+    }
+}
   
+var game;
+var font;
 var bird;
 var pipes = [];
 
+function preload(){
+    font = loadFont('Gotham-Light.otf');
+}
+
 function setup(){
     createCanvas (700,1000); 
+    game = new Game; 
     bird = new Bird; 
     pipes.push (new Pipe);
 }
 
 function draw() {
     background (0);
-    bird.show();  
-    bird.update();
     
-    if (frameCount % 150 == 0) {
-        pipes.push (new Pipe);
+    if (game.state == "play"){
+        
+        bird.show();  
+        bird.update();
+        
+        if (frameCount % 150 == 0) {
+            pipes.push (new Pipe);
+        }
+
+        for (var i = 0; i<pipes.length; i++){
+            pipes[i].update();
+            pipes[i].show();
+                        
+        }
+        
+    } else if (game.state == "new"){
+         game.newGame();
     }
-    
-//    rect(100,0,20,300);
-//    rect(100,500,20,height-500);
-    
-    for (var i = 0; i<pipes.length; i++){
-        pipes[i].update();
-        pipes[i].show();
-    }
-    
 }
 
 function keyPressed() {
-    if (key == " "){
+    if (game.state=="play" && key == " "){
         bird.up();
-    }
-}
+    } else if (game.state=="new" && key == " "){
+        game.state="play";
+    } 
+} 
+
+//function mousePressed(){
+//    if (width/2 -60<= mouseX <= width/2 + 60) && (580 <= mouseY <= 610){
+//        game.state="play";
+//    }
+//}
