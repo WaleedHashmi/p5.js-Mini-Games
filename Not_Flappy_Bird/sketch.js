@@ -76,7 +76,6 @@ function Game(){
         textSize(40);
         textAlign(CENTER);
         fill(100);
-//        rect(width/2 - 60,580,120,30); 
         fill(255); 
         text("Not Flappy Bird", width/2, 280);
         textSize(20);
