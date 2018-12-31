@@ -11,8 +11,14 @@ function Bird(){
         ellipse (this.x,this.y,this.r,this.r);
     }
     
+    this.checkCollision = function(){
+        for (var i = 0; i<pipes.length; i++){
+            if (pipes[0])
+        }
+    }
     
     this.update = function () {
+        this.checkCollision();
         this.y += this.v;
         this.v += this.g;
               
@@ -70,13 +76,12 @@ function Game(){
         textSize(40);
         textAlign(CENTER);
         fill(100);
-        rect(width/2 - 60,580,120,30); 
+//        rect(width/2 - 60,580,120,30); 
         fill(255); 
         text("Not Flappy Bird", width/2, 280);
         textSize(20);
-        text("A flappy bird inspired game", width/2, 310);  
-        
-        text("Start Game", width/2, 600);      
+        text("A flappy bird inspired game", width/2, 310);   
+        text("Hit spacebar to start", width/2, 600);      
     }
 }
   
@@ -127,8 +132,3 @@ function keyPressed() {
     } 
 } 
 
-//function mousePressed(){
-//    if (width/2 -60<= mouseX <= width/2 + 60) && (580 <= mouseY <= 610){
-//        game.state="play";
-//    }
-//}
