@@ -13,7 +13,9 @@ function Bird(){
     
     this.checkCollision = function(){
         for (var i = 0; i<pipes.length; i++){
-            if (pipes[0])
+           if (collideRectCircle(pipes[i].x,0,pipes[i].w,pipes[i].top,this.x,this.y,this.r) || collideRectCircle(pipes[i].x,pipes[i].bottom,pipes[i].w,height-pipes[i].bottom,this.x,this.y,this.r)){
+               game.state='new';
+           }        
         }
     }
     
@@ -72,6 +74,7 @@ function Game(){
     this.state = 'new';
     
     this.newGame = function(){
+        pipes = [];     
         textFont(font);
         textSize(40);
         textAlign(CENTER);
@@ -81,6 +84,16 @@ function Game(){
         textSize(20);
         text("A flappy bird inspired game", width/2, 310);   
         text("Hit spacebar to start", width/2, 600);      
+    }
+    
+    this.score = function(){
+        if (pipes.length - 3 >0){             
+            textFont(font);
+            textSize(40);
+            fill(100);
+            fill(255); 
+            text(pipes.length-3, width/2, 40);   
+        }
     }
 }
   
@@ -97,7 +110,7 @@ function setup(){
     createCanvas (700,1000); 
     game = new Game; 
     bird = new Bird; 
-    pipes.push (new Pipe);
+//    pipes.push (new Pipe);
 }
 
 function draw() {
@@ -114,9 +127,10 @@ function draw() {
 
         for (var i = 0; i<pipes.length; i++){
             pipes[i].update();
-            pipes[i].show();
-                        
+            pipes[i].show();               
         }
+        
+        game.score()
         
     } else if (game.state == "new"){
          game.newGame();
