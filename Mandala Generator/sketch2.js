@@ -8,27 +8,22 @@ function mandala(){
     this.isDrawing = false;
     
     this.display = function(){
-        //Background
         fill(240,240,240); 
         noStroke();
         ellipse (height/2,width/2,height,width); 
-        
-        
-        //drawing the curve
-        stroke(0);
-        beginShape();
-        for (var i=0; i<this.line.length; i++){
-            console.log('a');
-            curveVertex(this.line[i][0],this.line[i][1]);
-        }
-        endShape();        
+        this.draw();
     }
      
-    
     this.draw = function(){
+        for (var i=0; i<this.line.length; i++){
+            fill(0);
+            ellipse(this.line[i][0],this.line[i][1],this.size,this.size);
+        }
+
         if (this.isDrawing && (dist(mouseX,mouseY,height/2,width/2)<mandalaSize/2)){
             this.line.push([mouseX,mouseY]); 
         }
+        console.log(this.line); 
     }
 }
   
@@ -40,7 +35,6 @@ function setup(){
 
 function draw() {
     background (255,255,255);
-    m.draw();
     m.display();
     
     
