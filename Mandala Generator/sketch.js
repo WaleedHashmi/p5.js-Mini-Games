@@ -31,7 +31,6 @@ function mandala(){
         // part 2. drawing the curve not stored in this.curves
         beginShape();
         for (var i=0; i<this.line.length; i++){
-            console.log('a');
             curveVertex(this.line[i][0],this.line[i][1]);
         }
         endShape();   
@@ -39,8 +38,13 @@ function mandala(){
         
         // Foreground: Mandala Lines
         stroke(1);
-        for (int i = 0; i<mandalaSize; i++){
-            
+        shapeMode(CENTER);
+        line(width/2,height/2,width,height/2);
+        rotate(90);  
+        line(width/2,height/2,width,height/2);
+        
+        for (var i = 0; i<mandalaSize; i++){
+
         }
     }
     
@@ -67,13 +71,11 @@ function draw() {
     background (255,255,255);
     m.draw();
     m.display();
-    
-    
 }
 
 
 function mousePressed() {
-    if (dist(mouseX,mouseY,height/2,width/2)<mandalaSize/2){
+    if (dist(mouseX,mouseY,width/2,height/2)<mandalaSize/2){
         if (m.isDrawing){
             m.isDrawing = false;
         } else{
