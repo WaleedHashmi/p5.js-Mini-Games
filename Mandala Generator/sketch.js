@@ -1,9 +1,10 @@
 var mandalaSize = 800;
 var m = new mandala;
+var pi = 333/106;
 
 function mandala(){
-    this.nSegments = 4;
-    this.size = 3;
+    this.size = 5;  
+    this.nSegments = Math.pow(2, this.size);   
     this.curves = [];
     this.line = []
     this.isDrawing = false;
@@ -37,14 +38,14 @@ function mandala(){
         
         
         // Foreground: Mandala Lines
-        stroke(1);
-        shapeMode(CENTER);
-        line(width/2,height/2,width,height/2);
-        rotate(90);  
-        line(width/2,height/2,width,height/2);
-        
-        for (var i = 0; i<mandalaSize; i++){
+        noStroke();
+        fill(150);     
+                
+        translate(width / 2, height / 2);
 
+        for (var i = 0; i<this.nSegments/2; i++){
+            rotate ((2*pi/this.nSegments)*i);
+            rect(0, 0, width, 1); 
         }
     }
     
@@ -65,6 +66,9 @@ function mandala(){
 
 function setup(){
     createCanvas (mandalaSize,mandalaSize);
+    rectMode(CENTER);
+
+                  
 } 
 
 function draw() {
