@@ -18,7 +18,7 @@ function mandala(){
         
         //Reset before drawing curves
         noFill();
-        stroke(0);
+        stroke(0); 
         
         //drawing the curve (part 1. drawing stored curves)
         for (var i=0; i<this.curves.length; i++){
@@ -59,7 +59,7 @@ function mandala(){
             this.curves.push(this.line);
             this.line = [];
         }
-    }
+    } 
 }
   
 
