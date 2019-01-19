@@ -1,10 +1,11 @@
 
 
 function game() {
-    this.state = 'new';
+    this.state = 'play';
     this.screen_intro = new sIntro();
     this.screen_city = new sCity();
     this.screen_hurricane = new sHurricane();
+    this.play = new gameplay();
     
     this.update = function(){
         
@@ -20,6 +21,9 @@ function game() {
         } else if (g.state == 'city'){
             this.screen_city.update();
             this.screen_city.display();
+        } else if (g.state == 'play'){
+            this.play.update();
+            this.play.display();
         }
     }
     
