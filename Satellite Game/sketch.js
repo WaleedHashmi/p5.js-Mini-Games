@@ -6,12 +6,17 @@ function preload(){
     city = loadImage ('images/city.png');
     hurricane = loadImage ('images/hurricane.png');
     game_screen = loadImage ('images/game_screen.png');
+    gameover_screen = loadImage ('images/gameover_screen.png');
+
     
     
     //info box
     info = loadImage ('images/info-box.png');
-    info_hover = loadImage ('images/info-box_hover.png');
- 
+
+    //timer icons
+    icon_city = loadImage ('images/icon_city.png');
+    icon_hurricane = loadImage ('images/icon_hurricane.png');
+
     //rocket
     base = loadImage ('images/base.png');
     rockets = loadImage ('images/rockets.png');
@@ -27,15 +32,16 @@ function setup(){
 
 function draw() {
     background (0);
-    g.update();
-    g.display();
+    g.update(); 
+    g.display();  
 
 }
 
 function keyPressed() {
-    
+     
 } 
 
 function mousePressed() {
     sControl();
+    gameplayControls ();
 }

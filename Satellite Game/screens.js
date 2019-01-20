@@ -50,12 +50,7 @@ function sCity() {
     this.display = function(){
         image (city,0,0,1280,720); 
         imageMode(CENTER);
-        image (info, width/2 - this.t, height/2, 600, 337);     
-    
-        if (collidePointRect(mouseX,mouseY, width/2 - this.t, height/2, 600, 337)){
-            image (info_hover, width/2 - this.t, height/2, 600, 337);    
-        }
-         
+        image (info, width/2 - this.t, height/2, 600, 337);            
         imageMode(CORNER); 
     } 
 }
@@ -75,6 +70,13 @@ function sOver() {
     } 
     
     this.display = function(){
+        image (gameover_screen,0,0,1280,720);
+        fill (255);
+        textFont(font)
+        textSize(40);
+        text ('Game Over',width*.65,height*.3); 
+        textSize (25);
+        text ('The city was destroyed',width*.65,height*.35);      
     } 
     
 }
@@ -87,7 +89,10 @@ function sControl(){
     } else if (g.state == 'hurricane') {
         if (collidePointEllipse(mouseX,mouseY,width/2,height/2+112,55,55)){ 
             g.state = 'city';
-            console.log(1);
             }  
-        }
+    } else if (g.state == 'city') {
+        if (collidePointEllipse(mouseX,mouseY,width/2,height/2+112,55,55)){ 
+            g.state = 'play';
+        }  
+    }
 }  
