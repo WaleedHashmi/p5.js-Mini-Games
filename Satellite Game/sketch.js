@@ -31,7 +31,7 @@ function preload(){
     blastoff_background = loadImage ('images/blast_off_bg.png');
     
     //aerial 
-    aerial = loadImage ('images/aerial.jpg');
+    aerial = loadImage ('images/aerial.gif');
 }
 
  

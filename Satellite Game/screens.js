@@ -78,7 +78,7 @@ function sCity() {
 function sSuccess() {    
     this.t = 0;
     this.rSize = 550;
-    this.speed = 20;  
+    this.speed = 3;  
     
     this.update = function(){
         this.t +=this.speed;
@@ -118,9 +118,9 @@ function sSuccess() {
             fill (255);
             textFont(font);
             textSize(30);
-            text('Satellite sent this image', width*.2, height/2-10-40);
-            text('and the city was evacuated', width*.2, height/2-10);
-            text('YOU SAVED THE CITY!!!', width*.2, height/2-10+40);  
+            text('Satellite sent this image', width*.2, height/2+200-40);
+            text('and the city was evacuated', width*.2, height/2+200);
+            text('YOU SAVED THE CITY!!!', width*.2, height/2+200+40);  
             
         }
  
