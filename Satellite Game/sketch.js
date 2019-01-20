@@ -1,7 +1,7 @@
 function preload(){
 //    font = loadFont('Gotham-Light.otf');
     loadCount = 0;
-    font = "Playfair Display";
+    font = "Poppins";
     
     //screens
     main = loadImage ('images/main.png');

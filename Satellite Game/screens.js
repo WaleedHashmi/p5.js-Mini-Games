@@ -31,16 +31,15 @@ function sHurricane() {
         image (info, width/2 - this.t, height/2, 600, 337);
         imageMode(CORNER);     
         
-        
         fill(255);
         
         if (this.t == 0){
             textFont(font);
             textSize(30);
             textAlign(CENTER, CENTER);
-            text('A hurricane is heading towards', width/2, height/2-10-50);
-            text('the city and it can cause', width/2, height/2-10);
-            text('massive destruction', width/2, height/2-10+50);     
+            text('A hurricane which can cause', width/2, height/2-10-50);
+            text('massive destruction is ', width/2, height/2-10);
+            text('heading towards the city', width/2, height/2-10+50);     
         }
         
         //reference play now button 
@@ -67,9 +66,9 @@ function sCity() {
         if (this.t == 0){
             textFont(font);
             textSize(30);
-            text('Meanwhile in the city, noone', width/2, height/2-10-50);
+            text('Meanwhile in the city, no one', width/2, height/2-10-50);
             text('knows about the hurricane', width/2, height/2-10);
-            text('becasue the sattelite is broken', width/2, height/2-10+50);     
+            text('there is no satellite', width/2, height/2-10+50);     
         }
     } 
 }
@@ -110,7 +109,7 @@ function sSuccess() {
         textSize(40);
         
         textAlign(CENTER, CENTER);
-        text ('Blast off was a success',width/2,height*.85); 
+        text ('Blast off was a success!!!',width/2,height*.85); 
         
  
         if (height/2 - this.t < -this.rSize/3){
