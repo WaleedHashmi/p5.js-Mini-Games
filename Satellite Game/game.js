@@ -6,6 +6,7 @@ function game() {
     this.screen_city = new sCity();
     this.screen_hurricane = new sHurricane();
     this.screen_over = new sOver();
+    this.screen_success = new sSuccess();
     this.play = new gameplay();
     this.t = new timer;
     
@@ -32,9 +33,9 @@ function game() {
         } else if (g.state == 'over'){
             this.screen_over.update();
             this.screen_over.display();
-        }
-        
-
-    } 
-    
+        } else if (g.state == 'success'){
+            this.screen_over.update();
+            this.screen_over.display();
+        } 
+    }   
 }   
