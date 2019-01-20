@@ -1,5 +1,6 @@
 function preload(){
 //    font = loadFont('Gotham-Light.otf');
+    loadCount = 0;
     font = "Playfair Display";
     
     //screens
@@ -17,7 +18,6 @@ function preload(){
     icon_hurricane = loadImage ('images/icon_hurricane.png');
 
     //rocket
-    base = loadImage ('images/base.png');
     rockets = loadImage ('images/rockets.png');
     spacecraft = loadImage ('images/spacecraft.png');
     fuelsage = loadImage ('images/fuelsage.png');    
@@ -34,7 +34,11 @@ function preload(){
     aerial = loadImage ('images/aerial.gif');
 }
 
- 
+function loading() {
+    loadCount +=1;
+    loadText = '' + loadCount + "/19 resources loaded";
+    text (100,100);
+}
  
 function setup(){
     var cnv = createCanvas(1280, 720);
@@ -44,9 +48,8 @@ function setup(){
 
 function draw() {
     background (0);
-    g.update(); 
-    g.display();  
-
+    g.update();
+    g.display();
 }
 
 function keyPressed() {
