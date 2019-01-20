@@ -1,5 +1,6 @@
 function preload(){
-    font = loadFont('Gotham-Light.otf');
+//    font = loadFont('Gotham-Light.otf');
+    font = "Playfair Display";
     
     //screens
     main = loadImage ('images/main.png');
@@ -7,8 +8,6 @@ function preload(){
     hurricane = loadImage ('images/hurricane.png');
     game_screen = loadImage ('images/game_screen.png');
     gameover_screen = loadImage ('images/gameover_screen.png');
-
-    
     
     //info box
     info = loadImage ('images/info-box.png');
@@ -22,8 +21,21 @@ function preload(){
     rockets = loadImage ('images/rockets.png');
     spacecraft = loadImage ('images/spacecraft.png');
     fuelsage = loadImage ('images/fuelsage.png');    
+    
+    //blast_off
+    r01 = loadImage ('images/rocket-f01.png');
+    r02 = loadImage ('images/rocket-f02.png');
+    r03 = loadImage ('images/rocket-f03.png');    
+    r04 = loadImage ('images/rocket-f02.png');
+    blastoff_foreground = loadImage ('images/blast_off_fg.png'); 
+    blastoff_background = loadImage ('images/blast_off_bg.png');
+    
+    //aerial 
+    aerial = loadImage ('images/aerial.jpg');
 }
 
+ 
+ 
 function setup(){
     var cnv = createCanvas(1280, 720);
     cnv.parent("canvas-holder");

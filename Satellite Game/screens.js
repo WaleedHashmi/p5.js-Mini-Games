@@ -1,5 +1,4 @@
 function sIntro() {
-    
     this.update = function(){
         
     }
@@ -32,7 +31,17 @@ function sHurricane() {
         image (info, width/2 - this.t, height/2, 600, 337);
         imageMode(CORNER);     
         
+        
         fill(255);
+        
+        if (this.t == 0){
+            textFont(font);
+            textSize(30);
+            textAlign(CENTER, CENTER);
+            text('A hurricane is heading towards', width/2, height/2-10-50);
+            text('the city and it can cause', width/2, height/2-10);
+            text('massive destruction', width/2, height/2-10+50);     
+        }
         
         //reference play now button 
         //ellipse (width/2,height/2+112,55,55);
@@ -52,16 +61,70 @@ function sCity() {
         imageMode(CENTER);
         image (info, width/2 - this.t, height/2, 600, 337);            
         imageMode(CORNER); 
+        
+        fill(255);
+
+        if (this.t == 0){
+            textFont(font);
+            textSize(30);
+            text('Meanwhile in the city, noone', width/2, height/2-10-50);
+            text('knows about the hurricane', width/2, height/2-10);
+            text('becasue the sattelite is broken', width/2, height/2-10+50);     
+        }
     } 
 }
 
 
 function sSuccess() {    
-    this.update = function(){       
+    this.t = 0;
+    this.rSize = 550;
+    this.speed = 20;  
+    
+    this.update = function(){
+        this.t +=this.speed;
     } 
     
     this.display = function(){
-    } 
+        image (blastoff_background,0,0,1280,720); 
+        
+        
+        imageMode(CENTER);
+        
+        if (this.t % 4 == 0){
+            image (r01,width/2,height/2 - this.t,this.rSize,this.rSize);  
+        } else if (this.t % 4 == 1){
+            image (r02,width/2,height/2 - this.t,this.rSize,this.rSize);  
+        } else if (this.t % 4 == 2){
+            image (r03,width/2,height/2 - this.t,this.rSize,this.rSize);  
+        } else if (this.t % 4 == 3){
+            image (r04,width/2,height/2 - this.t,this.rSize,this.rSize);  
+        } 
+         
+        imageMode(CORNER); 
+          
+        
+        image (blastoff_foreground,0,0,1280,720); 
+
+        fill (0);
+        textFont(font)
+        textSize(40);
+        
+        textAlign(CENTER, CENTER);
+        text ('Blast off was a success',width/2,height*.85); 
+        
+ 
+        if (height/2 - this.t < -this.rSize/3){
+            image (aerial,0,-200,1280,1000);
+            fill (255);
+            textFont(font);
+            textSize(30);
+            text('Satellite sent this image', width*.2, height/2-10-40);
+            text('and the city was evacuated', width*.2, height/2-10);
+            text('YOU SAVED THE CITY!!!', width*.2, height/2-10+40);  
+            
+        }
+ 
+    }  
     
 }
 
@@ -72,7 +135,7 @@ function sOver() {
     this.display = function(){
         image (gameover_screen,0,0,1280,720);
         fill (255);
-        textFont(font)
+        textFont(font);
         textSize(40);
         text ('Game Over',width*.65,height*.3); 
         textSize (25);

@@ -34,8 +34,8 @@ function game() {
             this.screen_over.update();
             this.screen_over.display();
         } else if (g.state == 'success'){
-            this.screen_over.update();
-            this.screen_over.display();
+            this.screen_success.update();
+            this.screen_success.display();
         } 
     }   
 }   
