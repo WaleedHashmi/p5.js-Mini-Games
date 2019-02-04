@@ -22,7 +22,7 @@ function snake(){
     this.y;
     this.body = []
     this.v = 2;
-    this.dir = [[0,1],[0,-1],[1,0],[-1,0]] //up,down,right,left
+    this.dir = [[0,1],[0,-1],[1,0],[-1,0]]
     
     this.move = function(){              
         for (var i = 0; i < this.body.length; i++){
@@ -39,10 +39,9 @@ function snake(){
 
 
 var board = [];
-var canvasSize = 800;   
-var gridSize = 50;      // 10x10 pixels will make one block of snake/food
-var s = new snake;
-var snakeSpeed = 1;
+var canvasSize = 800;
+var gridSize = 50;    // 10x10 pixels will make one block of snake/food
+var s = new snake; 
 
 
 
@@ -75,14 +74,13 @@ function displayBoard(){
 function setup(){
     createCanvas (canvasSize,canvasSize);
     setBoard();
+
 }
 
 function draw() {
     background (0);
     displayBoard();
-    if (frameCount % snakeSpeed == 0){
-       s.move();
-    }
+    s.move();
 }
 
 function keyPressed(){
